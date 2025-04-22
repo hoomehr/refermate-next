@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Refermate
+
+A modern web application for managing and requesting job referrals within your network.
+
+## Features
+
+- Browse available job referrals from your network
+- Filter referrals by location, work type, and tags
+- Request referrals with your LinkedIn profile and resume
+- Create and manage your own referral offerings
+
+## Tech Stack
+
+- **Frontend**: Next.js, React, Material-UI
+- **Backend**: Next.js API Routes
+- **Styling**: Material UI with custom theming
+- **Form Handling**: React Hook Form (planned)
+- **Authentication**: NextAuth.js (planned)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ and npm/yarn
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/refermate.git
+cd refermate
+```
+
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+refermate/
+├── app/                  # Next.js app directory
+│   ├── api/              # API routes
+│   ├── page.tsx          # Home page
+│   └── ...
+├── components/           # Reusable React components
+├── public/               # Static files
+└── ...
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project can be deployed to Vercel with a single click:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyourusername%2Frefermate)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Next Steps
 
-## Deploy on Vercel
+- Implement proper authentication
+- Add data persistence with a database
+- Create user profiles and dashboards
+- Implement notifications for referral requests
+- Add admin panel for managing referrals and users
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
