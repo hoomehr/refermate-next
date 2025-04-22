@@ -13,6 +13,7 @@ import {
   CardContent
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import SearchIcon from '@mui/icons-material/Search';
 import Layout from '../../components/Layout';
 import ReferralCard from '../../components/ReferralCard';
 import ReferralDetails from '../../components/ReferralDetails';
@@ -206,7 +207,24 @@ export default function ProfilePage() {
               {mockUser.email}
             </Typography>
           </Box>
-          <Box sx={{ ml: 'auto' }}>
+          <Box sx={{ ml: 'auto', display: 'flex', gap: 2 }}>
+            <Button
+              startIcon={<SearchIcon />}
+              href="/"
+              sx={{ 
+                borderRadius: '50px', 
+                px: 3,
+                backgroundColor: 'white',
+                color: 'black',
+                boxShadow: '0 0 10px rgba(0, 100, 0, 0.3)',
+                '&:hover': {
+                  backgroundColor: 'white',
+                  boxShadow: '0 0 15px rgba(0, 100, 0, 0.5)',
+                }
+              }}
+            >
+              Find Referrals
+            </Button>
             <Button
               variant="contained"
               startIcon={<AddIcon />}
@@ -218,12 +236,10 @@ export default function ProfilePage() {
           </Box>
         </Box>
 
-        <Divider sx={{ mb: 3 }} />
-
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={tabValue} onChange={handleChange} aria-label="profile tabs">
-            <Tab label="Your Referrals" id="profile-tab-0" aria-controls="profile-tabpanel-0" />
-            <Tab label="Requested Referrals" id="profile-tab-1" aria-controls="profile-tabpanel-1" />
+            <Tab label="Referrals" id="profile-tab-0" aria-controls="profile-tabpanel-0" />
+            <Tab label="Requests" id="profile-tab-1" aria-controls="profile-tabpanel-1" />
             <Tab label="Settings" id="profile-tab-2" aria-controls="profile-tabpanel-2" />
           </Tabs>
         </Box>
@@ -249,7 +265,7 @@ export default function ProfilePage() {
               </CardContent>
             </Card>
           ) : (
-            <Box>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
               {mockReferrals.map((referral) => (
                 <ReferralCard
                   key={referral.id}
@@ -287,7 +303,7 @@ export default function ProfilePage() {
               </CardContent>
             </Card>
           ) : (
-            <Box>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
               {mockReferralRequests.map((request) => (
                 <ReferralRequestCard
                   key={request.id}

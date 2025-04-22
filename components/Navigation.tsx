@@ -103,7 +103,13 @@ const Navigation = () => {
                   sx={{ 
                     textTransform: 'none',
                     fontWeight: pathname === '/profile' ? 'bold' : 'normal',
-                    borderBottom: pathname === '/profile' ? '2px solid black' : 'none',
+                    backgroundColor: pathname === '/profile' ? 'white' : 'transparent',
+                    boxShadow: pathname === '/profile' ? '0 0 10px rgba(0, 100, 0, 0.5)' : 'none',
+                    borderRadius: '20px',
+                    padding: '6px 16px',
+                    '&:hover': {
+                      backgroundColor: pathname === '/profile' ? 'white' : 'rgba(0, 0, 0, 0.04)',
+                    },
                   }}
                 >
                   Profile

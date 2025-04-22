@@ -113,7 +113,6 @@ export default function ReferralRequestCard({
   return (
     <Card 
       sx={{ 
-        mb: 3,
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
@@ -235,7 +234,7 @@ export default function ReferralRequestCard({
                 fontWeight: 500,
                 '&:hover': {
                   bgcolor: 'rgba(211, 47, 47, 0.1)',
-                }
+                },
               }}
             >
               Cancel

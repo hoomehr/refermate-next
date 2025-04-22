@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Button, Typography, CircularProgress, Grid, Paper, Container } from '@mui/material';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import SearchIcon from '@mui/icons-material/Search';
 import Layout from '../components/Layout';
 import ReferralCard from '../components/ReferralCard';
 import ReferralFilters from '../components/ReferralFilters';
@@ -185,6 +186,23 @@ export default function Home() {
         </Box>
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Button
+            startIcon={<SearchIcon />}
+            sx={{ 
+              borderRadius: '50px', 
+              px: 3,
+              fontWeight: 'bold',
+              backgroundColor: 'white',
+              color: 'black',
+              boxShadow: '0 0 10px rgba(0, 100, 0, 0.5)',
+              '&:hover': {
+                backgroundColor: 'white',
+              }
+            }}
+            onClick={(e) => e.preventDefault()}
+          >
+            Find Referrals
+          </Button>
+          <Button
             variant="contained"
             startIcon={<PersonAddIcon />}
             href="/create-referral"
@@ -195,24 +213,6 @@ export default function Home() {
               color: 'white',
               '&:hover': {
                 bgcolor: 'rgba(0, 0, 0, 0.8)',
-              }
-            }}
-          >
-            I Need Referral
-          </Button>
-          <Button
-            variant="text"
-            href="/create-referral"
-            sx={{ 
-              borderRadius: '50px', 
-              px: 3,
-              bgcolor: 'white',
-              color: 'black',
-              border: 'none',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-              '&:hover': {
-                bgcolor: 'white',
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.25)',
               }
             }}
           >
