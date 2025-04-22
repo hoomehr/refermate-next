@@ -16,6 +16,7 @@ import AddIcon from '@mui/icons-material/Add';
 import Layout from '../../components/Layout';
 import ReferralCard from '../../components/ReferralCard';
 import ReferralDetails from '../../components/ReferralDetails';
+import ReferralRequestCard from '../../components/ReferralRequestCard';
 
 // Mock user data
 const mockUser = {
@@ -61,6 +62,82 @@ const mockReferrals = [
       id: '101',
       name: 'Alex Johnson',
       email: 'alex@example.com',
+    },
+  },
+];
+
+// Mock referral requests data
+const mockReferralRequests = [
+  {
+    id: 'request-1',
+    status: 'pending',
+    message: 'I have 5 years of experience with React and would love to be considered for this role!',
+    createdAt: new Date('2023-08-10'),
+    resume: 'https://example.com/resumes/john_smith_resume.pdf',
+    referral: {
+      id: 'frontend-referral-id',
+      title: 'Senior Frontend Developer at a growing fintech startup',
+      description: 'Looking for someone with 4+ years of React experience.',
+      location: 'San Francisco, CA',
+      workType: 'Remote',
+      tags: [
+        { id: '1', name: 'Frontend' },
+        { id: '2', name: 'React' },
+        { id: '3', name: 'TypeScript' }
+      ],
+      author: {
+        id: '101',
+        name: 'Alex Johnson',
+        image: 'https://randomuser.me/api/portraits/men/1.jpg',
+      },
+    },
+  },
+  {
+    id: 'request-2',
+    status: 'approved',
+    message: 'I recently completed a UX certification and have been working as a product designer for 3 years.',
+    createdAt: new Date('2023-07-28'),
+    resume: 'https://example.com/resumes/john_smith_resume.pdf',
+    referral: {
+      id: 'design-referral-id',
+      title: 'Product Designer role at healthcare tech company',
+      description: 'Must have experience with design systems and user research.',
+      location: 'Boston, MA',
+      workType: 'On-site',
+      tags: [
+        { id: '5', name: 'UI/UX' },
+        { id: '6', name: 'Healthcare' },
+        { id: '7', name: 'Figma' }
+      ],
+      author: {
+        id: '101',
+        name: 'Alex Johnson',
+        image: 'https://randomuser.me/api/portraits/men/1.jpg',
+      },
+    },
+  },
+  {
+    id: 'request-3',
+    status: 'rejected',
+    message: 'I have 2 years experience with microservices and am eager to learn more about distributed systems.',
+    createdAt: new Date('2023-07-15'),
+    resume: 'https://example.com/resumes/john_smith_resume.pdf',
+    referral: {
+      id: 'backend-referral-id',
+      title: 'Backend Engineer needed for scaling our infrastructure',
+      description: 'Experience with Go and distributed systems required.',
+      location: 'New York, NY',
+      workType: 'Hybrid',
+      tags: [
+        { id: '8', name: 'Backend' },
+        { id: '9', name: 'Go' },
+        { id: '10', name: 'Distributed Systems' }
+      ],
+      author: {
+        id: '102',
+        name: 'Sarah Lee',
+        image: 'https://randomuser.me/api/portraits/women/2.jpg',
+      },
     },
   },
 ];
@@ -191,23 +268,39 @@ export default function ProfilePage() {
         </TabPanel>
 
         <TabPanel value={tabValue} index={1}>
-          <Card sx={{ textAlign: 'center', p: 4, bgcolor: '#f9f9f9' }}>
-            <CardContent>
-              <Typography variant="h6" gutterBottom>
-                You haven't requested any referrals yet
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-                Browse opportunities on the home page and request referrals
-              </Typography>
-              <Button
-                variant="contained"
-                href="/"
-                sx={{ borderRadius: '50px', px: 3 }}
-              >
-                Browse Opportunities
-              </Button>
-            </CardContent>
-          </Card>
+          {mockReferralRequests.length === 0 ? (
+            <Card sx={{ textAlign: 'center', p: 4, bgcolor: '#f9f9f9' }}>
+              <CardContent>
+                <Typography variant="h6" gutterBottom>
+                  You haven't requested any referrals yet
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+                  Browse opportunities on the home page and request referrals
+                </Typography>
+                <Button
+                  variant="contained"
+                  href="/"
+                  sx={{ borderRadius: '50px', px: 3 }}
+                >
+                  Browse Opportunities
+                </Button>
+              </CardContent>
+            </Card>
+          ) : (
+            <Box>
+              {mockReferralRequests.map((request) => (
+                <ReferralRequestCard
+                  key={request.id}
+                  id={request.id}
+                  status={request.status}
+                  message={request.message}
+                  createdAt={request.createdAt}
+                  resume={request.resume}
+                  referral={request.referral}
+                />
+              ))}
+            </Box>
+          )}
         </TabPanel>
 
         <TabPanel value={tabValue} index={2}>
@@ -217,18 +310,20 @@ export default function ProfilePage() {
                 Account Settings
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Account settings will be implemented in future versions.
+                Account settings will be implemented in a future update.
               </Typography>
             </CardContent>
           </Card>
         </TabPanel>
       </Box>
 
-      <ReferralDetails
-        open={detailsOpen}
-        onClose={handleCloseDetails}
-        referral={selectedReferral}
-      />
+      {selectedReferral && (
+        <ReferralDetails
+          open={detailsOpen}
+          onClose={handleCloseDetails}
+          referral={selectedReferral}
+        />
+      )}
     </Layout>
   );
 } 
