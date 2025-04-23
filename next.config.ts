@@ -8,10 +8,10 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['randomuser.me'], // Add any domains you need for images
+    domains: ['randomuser.me', 'api.dicebear.com'], // Add any domains you need for images
   },
   experimental: {
-    serverComponentsExternalPackages: ['prisma', '@prisma/client'],
+    // Removed Prisma packages from serverComponentsExternalPackages
   },
 };
 

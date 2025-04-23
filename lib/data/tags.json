@@ -1,0 +1,79 @@
+{
+  "tags": [
+    {
+      "id": "1",
+      "name": "Backend",
+      "color": "#2196f3"
+    },
+    {
+      "id": "2",
+      "name": "Frontend",
+      "color": "#4caf50"
+    },
+    {
+      "id": "3",
+      "name": "Cloud",
+      "color": "#ff9800"
+    },
+    {
+      "id": "4",
+      "name": "Product Management",
+      "color": "#9c27b0"
+    },
+    {
+      "id": "5",
+      "name": "Leadership",
+      "color": "#f44336"
+    },
+    {
+      "id": "6",
+      "name": "React",
+      "color": "#00bcd4"
+    },
+    {
+      "id": "7",
+      "name": "Solutions Architecture",
+      "color": "#795548"
+    },
+    {
+      "id": "8",
+      "name": "Azure",
+      "color": "#3f51b5"
+    },
+    {
+      "id": "9",
+      "name": "DevOps",
+      "color": "#009688"
+    },
+    {
+      "id": "10",
+      "name": "iOS",
+      "color": "#e91e63"
+    },
+    {
+      "id": "11",
+      "name": "Swift",
+      "color": "#ff5722"
+    },
+    {
+      "id": "12",
+      "name": "Machine Learning",
+      "color": "#673ab7"
+    },
+    {
+      "id": "13",
+      "name": "Artificial Intelligence",
+      "color": "#8bc34a"
+    },
+    {
+      "id": "14",
+      "name": "Payments",
+      "color": "#607d8b"
+    },
+    {
+      "id": "15",
+      "name": "Security",
+      "color": "#ff4081"
+    }
+  ]
+} 
